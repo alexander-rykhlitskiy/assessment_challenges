@@ -16,14 +16,14 @@ require 'minitest/autorun'
 
 class TestLongestSequence < Minitest::Test
   def test_with_test_data
-    assert_equal longest_sequence('Pressuuuuuure'), 'uuuuuu'
-    assert_equal longest_sequence('Boat'), 'B'
-    assert_equal longest_sequence('A hot  dog'), '  '
+    assert_equal 'uuuuuu', longest_sequence('Pressuuuuuure')
+    assert_equal 'B', longest_sequence('Boat')
+    assert_equal '  ', longest_sequence('A hot  dog')
   end
 
   def test_with_custom_data
-    assert_equal longest_sequence('B'), 'B'
-    assert_equal longest_sequence('Buu'), 'uu'
+    assert_equal 'B', longest_sequence('B')
+    assert_equal 'uu', longest_sequence('Buu')
     assert_nil longest_sequence('')
     assert_nil longest_sequence(nil)
   end

@@ -7,9 +7,8 @@ def maximum_sum_positions(numbers)
   numbers.length.times do |start_position|
     start_position.upto(numbers.length - 1) do |end_position|
       current_subset = numbers[start_position..end_position]
-      max_subset = numbers[result_start..result_end]
 
-      if current_subset.sum > max_subset.sum
+      if result_start.nil? || current_subset.reduce(:+) > numbers[result_start..result_end].reduce(:+)
         result_start, result_end = start_position, end_position
       end
     end
@@ -22,7 +21,8 @@ require 'minitest/autorun'
 
 class TestMaximumSumSubset < Minitest::Test
   def test_with_test_data
-    assert_equal maximum_sum_positions([2, -4, 6, 8, -10, 100, -6, 5]), [2, 5]
+    assert_equal [2, 5], maximum_sum_positions([2, -4, 6, 8, -10, 100, -6, 5])
+    assert_equal [0, 1], maximum_sum_positions([2, 5])
   end
 
   def test_with_custom_data
