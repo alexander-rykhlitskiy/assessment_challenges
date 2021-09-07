@@ -1,3 +1,4 @@
+## Run tests
 ```bash
-ruby challenge_1.rb
+for file in *.rb; do echo $file; ruby $file; done
 ```
